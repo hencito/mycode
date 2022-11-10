@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+#import libraries
+#import emoji
+
+# end of import libraries
 # Write your own program using if, elif, and else! You can pick from one of the following ideas, or come up with your own!
 
 """"Requirements:
@@ -46,19 +50,19 @@ def main():
                                 answer = input("Please type in your guess:\n>").lower()
                                 if answer == "fish":
                                         print("\n")
-                                        print("Correct!")
-                                        print("Your prize is a.... Fish!!!")
-                                        print("... sorry we have a low budget :)")
+                                        print("Correct!"+ "\N{party popper}")
+                                        print("Your prize is a... Fish"+ "\N{fish}"+"!!!")
+                                        print("... sorry we have a low budget"+"\N{upside-down face}")
                                         break
                                 elif guess_round==3:
                                         print("\n")
-                                        print("Sorry, the answer is 'fish'.")
-                                        print("I guess the odds were not in your favor...")
-                                        print("Better luck next time! (next game date is unknown... you know, low budget and all)")
+                                        print("Sorry, the answer is 'fish'"+"\N{fish}"+".")
+                                        print("I guess the odds were not in your favor..."+"\N{worried face}")
+                                        print("Better luck next time! (next game date is unknown... you know, low budget and all"+"\N{upside-down face}")
                                         break
                                 else:
                                         print("\n")
-                                        print("Wrong guess, try again")
+                                        print("Wrong guess"+"\N{neutral face}"+", try again")
                                         print("\n")
                                         
 
@@ -71,19 +75,19 @@ def main():
                                 answer = input("Please type in your guess:\n>").lower()
                                 if answer == "stupid":
                                         print("\n")
-                                        print("Correct!")
-                                        print("Your prize is a.... Dictionary...from the dollar store!!!")
-                                        print("... sorry we have a low budget :)")
+                                        print("Correct!"+"\N{party popper}")
+                                        print("Your prize is a... Dictionary"+"\N{closed book}"+"...from the dollar store!!!")
+                                        print("... sorry we have a low budget"+"\N{upside-down face}")
                                         break
                                 elif guess_round==3:
                                         print("\n")
-                                        print("Sorry, the answer is 'stupid'.")
-                                        print("I guess the odds were not in your favor...")
-                                        print("Better luck next time! (next game date is unknown... you know, low budget and all)")
+                                        print("Sorry, the answer is 'stupid'"+"\N{thinking face}"+".")
+                                        print("I guess the odds were not in your favor..."+"\N{worried face}")
+                                        print("Better luck next time! (next game date is unknown... you know, low budget and all)"+"\N{upside-down face}")
                                         break
                                 else:
                                         print("\n")
-                                        print("Wrong guess, try again")
+                                        print("Wrong guess"+"\N{neutral face}"+", try again")
                                         print("\n")
                                 
 
@@ -96,19 +100,19 @@ def main():
                                 answer = input("Please type in your guess:\n>").lower()
                                 if answer == "sand":
                                         print("\n")
-                                        print("Correct!")
-                                        print("Your prize is a.... A small bottle of decorated Sand!!!")
-                                        print("... sorry we have a low budget :)")
+                                        print("Correct!"+ "\N{party popper}")
+                                        print("Your prize is a... fancy bottle of Sand"+"\N{hourglass}"+"!!!")
+                                        print("... sorry we have a low budget"+"\N{upside-down face}")
                                         break
                                 elif guess_round==3:
                                         print("\n")
-                                        print("Sorry, the answer is 'sand'.")
-                                        print("I guess the odds were not in your favor...")
-                                        print("Better luck next time! (next game date is unknown... you know, low budget and all)")
+                                        print("Sorry, the answer is 'sand'."+"\N{hourglass}")
+                                        print("I guess the odds were not in your favor..."+"\N{worried face}")
+                                        print("Better luck next time! (next game date is unknown... you know, low budget and all)"+"\N{upside-down face}")
                                         break
                                 else:
                                         print("\n")
-                                        print("Wrong guess, try again")
+                                        print("Wrong guess"+"\N{neutral face}"+", try again")
                                         print("\n")
                 
                 
