@@ -111,16 +111,16 @@ while True:
 
 
     # if they are standing still in a room
-    if move [0] == '':
+    # if move [0] == '':
         ## If a player enters a room with a monster
-        if 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item']:
-            print('A monster has got you... GAME OVER!')
-            break
+    if 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item']:
+        print('A monster has got you... GAME OVER!')
+        break
 
         ## Define how a player can win
-        if currentRoom == 'Garden' and 'key' in inventory and 'potion' in inventory:
-            print('You escaped the house with the ultra rare key and magic potion... YOU WIN!')
-            break
+    if currentRoom == 'Garden' and 'key' in inventory and 'potion' in inventory:
+        print('You escaped the house with the ultra rare key and magic potion... YOU WIN!')
+        break
 
 
 
