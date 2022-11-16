@@ -1,18 +1,81 @@
 #!/usr/bin/python3
-"""Driving a simple game framework with
-   a dictionary object | Alta3 Research"""
+"""This is a single person project all code, besides the starter code, is my own"""
 
-def showInstructions():
+
+"""In my code I have added:
+    1) 2 additional rooms
+        1) Basement
+        2) Secret Pasage
+        
+    2) Additional action -> 'use'
+
+    3) Blocked actions for movement. That is, I locked the Secret Passage and 
+    did not let the player use the Secret Passage unless they unlocked the passage.
+
+    4) Added some styling to the Banner and Command menu
+    5) Added an easter egg to the title
+    6) Added descriptions for certain rooms (Basement and Garden)
+    7) Allowed the player to figh the monster
+    8) Added a 'special-item' to the dictionary
+    9) Added more directions to the dictionary, this was done to connect the Secret
+    Passage to an existing room
+    10) Added additional messages for actions that are not allowed.
+    11) Made the Secret Passage only accessible from the basement;
+    this makes the Secret Pasage a semi one-way traversal.
+        # - The player can access the passage from the Basemant, traverse the passage,
+        and decide if to turn around or proceed. 
+        # - If the player continues to the "north-east", then they will enter the
+            Dinnig room, and will not be able to access the Secret Passage.
+    
+    """
+
+#importing the ansi.colour library for text color in terminal
+from ansi.colour.rgb import rgb256
+from ansi.colour.fx import reset
+
+#importing pyfiglet for fonts
+import pyfiglet
+  
+def showBanner():
     """Show the game instructions when called"""
-    #print a main menu and the commands
-    print('''
-    RPG Game
-    ========
+    #game banner text
+    rpg ='RPG Game'
+    rpg_msg= pyfiglet.figlet_format(rpg, font ="isometric3")
+    #this is an easter egg message
+    rpg_msg2= pyfiglet.figlet_format(rpg, font ="binary")
+
+    #this set the color for the rpg banner and the easter egg
+    msg = (rgb256(255, 173, 0), rpg_msg, reset)
+    easter_egg =(rgb256(15, 255, 80), rpg_msg2, reset)
+
+    #these are prints using the "ansi.colour" recommended printing
+    print(''.join(map(str, msg)))
+    print(''.join(map(str, easter_egg)))
+           
+    
+    
+
+
+def showcommands():
+    """Show the game commands when called"""
+    #print the commands
+        
+    commands = '''
+    ================
     Commands:
-      go [direction]
-      get [item]
-      use [item]
-    ''')
+    go [direction]
+    get [item]
+    use [item]
+    ================
+    '''
+    #this set the color for the commands
+    cmd_msg = (rgb256(31, 81, 255), commands, reset)
+    #this prints the commands using ansi
+    print(''.join(map(str, cmd_msg)))       
+    
+   
+
+
 
 def showStatus():
     """determine the current status of the player"""
@@ -95,7 +158,7 @@ rooms = {
 
             'Secrete Passage' :{
                 'north-east':'Dining Room',
-                'sout-west' : 'Basement'
+                'south-west' : 'Basement'
             }
 
          }
@@ -111,10 +174,12 @@ playerAction = ''
 passageStatus= 'locked'
 
 
-showInstructions()
+showBanner()
+
 
 # breaking this while loop means the game is over
 while True:
+    showcommands()
     showStatus()
 
     # the player MUST type something in
@@ -260,7 +325,7 @@ while True:
     if currentRoom == 'Garden' and 'key' in inventory and 'potion' not in inventory:
         print('----------------------------------------------------------------------------------')
         print('The plants in the garden are releasing spores to the air.')
-        print('You have encontered this before; if you stay any longer then you will fall asleep.')
+        print('You have encountered this before; if you stay any longer then you will fall asleep.')
         print('You will need a potion to combat the sleep effect.')
         print('Go back and search for a potion!')
         print('----------------------------------------------------------------------------------\n')
