@@ -37,7 +37,7 @@ from ansi.colour.fx import reset
 import pyfiglet
   
 def showBanner():
-    """Show the game instructions when called"""
+    """Show the game banner when called"""
     #game banner text
     rpg ='RPG Game'
     rpg_msg= pyfiglet.figlet_format(rpg, font ="isometric3")
@@ -48,7 +48,7 @@ def showBanner():
     msg = (rgb256(255, 173, 0), rpg_msg, reset)
     easter_egg =(rgb256(15, 255, 80), rpg_msg2, reset)
 
-    #these are prints using the "ansi.colour" recommended printing
+    #these are print statemets using the "ansi.colour" recommended printing
     print(''.join(map(str, msg)))
     print(''.join(map(str, easter_egg)))
            
@@ -78,7 +78,8 @@ def showcommands():
 
 
 def showStatus():
-    """determine the current status of the player"""
+    """Determine the current status of the player
+       Provide the player options depending ont he status/location"""
     # create a list of keys
     keylist = list(rooms[currentRoom].keys())
     # print the player's current location
@@ -86,7 +87,6 @@ def showStatus():
     print('===========================')
     # check if the player is in the Basement
     if currentRoom == 'Basement':
-        
         print('You sense that there is a Secret Passage at the north-east end of this room.')
         print('You are in the ' + currentRoom)
         
@@ -98,7 +98,7 @@ def showStatus():
                 print(option)
               
     else:
-        
+        # print the current room
         print('You are in the ' + currentRoom)
         
         print('---------------------------')
@@ -173,12 +173,13 @@ playerAction = ''
 # this tracks the status or passages and trap doors
 passageStatus= 'locked'
 
-
+# Call the banner at the start off the game
 showBanner()
 
 
 # breaking this while loop means the game is over
 while True:
+    #Show command and status on every round
     showcommands()
     showStatus()
 
@@ -213,7 +214,7 @@ while True:
 
     #if they type 'get' first
     if move[0] == 'get' :
-        # make two checks:
+        # make three checks:
         # 1. if the current room contains an item or a special item
         # 2. if the item in the room matches the item the player wishes to get
         if "item" in rooms[currentRoom] and move[1] in rooms[currentRoom]['item']:
@@ -239,17 +240,16 @@ while True:
 
         
     
-## If a player has a sword and enters a room with a monster
+    ## If a player has a sword and enters a room with a monster
     if 'enemy' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['enemy']:
-           
+        #check if the player has a sword in its inventory and if the current room contains a monster   
         if 'enemy' in rooms[currentRoom] and 'sword' in inventory and 'monster' in rooms[currentRoom]['enemy']:
-            
-            
+            #allow the player to choose whether or not to fight
             print('--------------------------------------------------------')
             print('There is a monster in the room...and you have a sword...')
             playerAction = input('Would you like to fight it? (y/n)').lower()
             print('\n')
-
+            #if the player chooses to fight then provide him with an oportunity use an item, i.e. "sword"
             if playerAction == "y":
                 print('Please input your action')
                 move = ''
@@ -257,12 +257,12 @@ while True:
                     move = input('>')
                 move = move.lower().split(" ", 1)
                 print('\n')
-            
+            #if the player chooses not to fight then its game over
             else:
                 print('A monster attacks!!!')
                 print('The monster has got you... GAME OVER!')
                 break
-        # this will end the game if the player enters the room without an item: sword
+        # this will end the game if the player enters the room without a sword
         if playerAction == '':
                 print('A monster attacks!!!')
                 print('The monster has got you... GAME OVER!')
@@ -270,7 +270,7 @@ while True:
             
        
    
-    # give the player the ability to take an action
+    # give the player the ability to take an action/use and item
     if move[0] == 'use':
         # take a swing
         if move[1] == 'sword':
@@ -281,9 +281,16 @@ while True:
                 print('\n')
                 del rooms[currentRoom]['enemy']
                 playerAction = ''
+
+            elif 'sword' in inventory  and 'enemy' in rooms[currentRoom] and 'monster' not in rooms[currentRoom]['enemy']:
+                print('Can\'t do that. with'+ move[1] + 'here!')
+
+            elif 'sword' in inventory:
+                print('Can\'t do that. with'+ move[1] + 'here!')
+        
         else:
             # tell them they cant do that
-            print('Can\'t do that. You do not have a'  + move[1] + '!')
+            print('Can\'t do that. with '+ move[1] + ' here!')
 
   
     
