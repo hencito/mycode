@@ -283,10 +283,10 @@ while True:
                 playerAction = ''
 
             elif 'sword' in inventory  and 'enemy' in rooms[currentRoom] and 'monster' not in rooms[currentRoom]['enemy']:
-                print('Can\'t do that. with'+ move[1] + 'here!')
+                print('Can\'t do that. with '+ move[1] + ' here!')
 
             elif 'sword' in inventory:
-                print('Can\'t do that. with'+ move[1] + 'here!')
+                print('Can\'t do that. with '+ move[1] + ' here!')
         
         else:
             # tell them they cant do that
