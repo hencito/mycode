@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from flask import Flask
 from flask import render_template
+from flask import jsonify
 
 app = Flask(__name__)
 
@@ -54,6 +55,14 @@ def valid(codeName):
         #name = char["name"]
 
     return render_template("hellouser.html", codeName=codeName, mgsCharacters=mgsCharacters)
+
+
+#returns a json with the list of characters
+@app.route("/characters")
+def characters():
+
+
+    return jsonify(mgsCharacters)
 
 
 

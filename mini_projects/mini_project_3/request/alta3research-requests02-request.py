@@ -9,6 +9,7 @@ from pprint import pprint
 
 URL= "http://127.0.0.1:2224/"
 
+
 new_rapper= {
     "name": "Clifford Smith Jr.",  
     "stageName": "Method Man",
@@ -24,6 +25,11 @@ new_rapper= {
         "Da Mystery of Chessboxin'"
               ]
              }
+
+
+# get a Json with the existing rapper in the list
+existing_resp= requests.get(URL)
+pprint(existing_resp.json())
 
 # json.dumps takes a python object and returns it as a JSON string
 new_rapper= json.dumps(new_rapper)
