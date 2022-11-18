@@ -47,13 +47,7 @@ def invalidagent():
 @app.route("/agent/<codeName>")
 def valid(codeName):
     # render the jinja template "hellouser.html"
-    # apply the value of username for the var name
-    #for char in mgsCharacters:
-
-    # print("Hello",mgsCharacters)
-
-        #name = char["name"]
-
+ 
     return render_template("hellouser.html", codeName=codeName, mgsCharacters=mgsCharacters)
 
 
