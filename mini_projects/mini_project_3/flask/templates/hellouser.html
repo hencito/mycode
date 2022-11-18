@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+   <body>
+
+       {% if codeName == "Solid Snake" %}
+       <h1>Welcome David</h1>
+       <br>
+       <h2>Today's Briefing</h2>
+       <p><b>Operation Clean House:</b> You are to find and neutralize the following targets. Please be aware that these individuals are considered armend and extremely dangerous.</p>
+       <br>
+       <h4><b>Targets</b></h4>
+
+        {% for character in mgsCharacters %}
+            {% if character.codeName == "Solid Snake" %}
+                <ul>
+                    <li>name: {{character.name}}</li>
+                    <li>codeName: {{character.codeName}}</li>
+                    <p>quote: {{character.quote}}</p>
+                </ul>
+            {% endif %}         
+        {% endfor %}
+
+       {% else  %}
+       <h1 style="color:red;"><strong>This is a restricted site!!!</strong></h1>
+       <h1 style="color:red;">Exit to avoid prosecution</h1>
+       {% endif %}
+
+   </body>
+</html>
+
